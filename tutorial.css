@@ -1,0 +1,173 @@
+/*내가 의도했던 박스모델의 크기는 border까지 포함한 것이기 때문에 반드시 적용!*/
+* {
+  box-sizing: border-box;
+}
+
+/*꽉찬 페이지를 만들어 주기 위해 'body'에서 자동으로 설정되는 'margin'과 'padding'을 없앤다.*/
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/*Pseudo를 사용해 페이지 전체의 'a'태그에서 촌스러운 파란색과 보라색을 없애고 색깔을 통일할 수 있다.*/
+a:visited, a:link {
+  text-decoration: none;
+  color: black;
+}
+
+/*margin 값을 상하에 '0', 좌우에 'auto'로 설정함으로써, 'container'클래스의 내용들을 가운데 정렬할 수 있게 되었다*/
+/*container라는 부모요소의 자식요소들은 몽땅 960px을 가짐!!! 일종의 상속!!! 작업하면서 인스펙터로 확인해보자*/
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+/*'navigaition bar' part*/
+nav {
+  /*네비바의 높이를 적절히 설정해준다.*/
+  height: 80px;
+  /*네비바의 색깔도 적절히 선택해 적용한다.*/
+  background-color: crimson;
+  /*'line-height: ;' 선언의 원래 기능은 줄간격을 조절하는 것이다. 여기서는 네비바의 높이와 같은 80px을 적용함으로써 로고와 버튼이 중앙에 위치도록 하였다.*/
+  line-height: 80px;
+}
+
+nav::after {
+  /*'nav'태그의 이어지는 'header'태그가 정상적으로 출력되게 하려면 'nav'이후의 요소들에는 'float'가 적용되지 않게 가상의 공간을 만들어 주어야 한다. */
+  /*가상의 공간이 없는 네비바는 댐이 없는 폭포와 같다. 네비바에 있는 로고와 메뉴버튼 모두 float가 되어 붕붕 떠다니고 있기 때문이다.*/
+  /*우리가 지금 만들어 주는 이 '댐'은 내용이 없는 블록이며, 'clear'를 적용하여  'float'를 무력화 시키는 기능을 한다.*/
+  /*이렇게 가상요소를 사용해 'float'를 무력화 하는 것을 'clearfix'라고 한다. 'clearfix'의 선언문은 다음과 같다.*/
+  /*selector(선택자)::after {
+    content: " ";        콘텐츠를 반드시 설정해야 한다!!!
+    display: block;
+    clear: both;         'clear'는 'float'를 무효화!
+  } */
+  /*저의 부족함으로 이해가 잘 되지 않을 수 있다...백문이불여일견! 개발자 도구 인스펙터로 확인해 보자~!!*/
+  /*여기서 사용된 '::after'는 pseudo-element 중 하나로 특정 요소의 뒤에 반드시 무엇이 따라오게 하는 기능을 한다*/
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+.nav-logo {
+  /*글씨크기는 적절히 키워 준다.*/
+  font-size: 30px;
+  /*네비바에 넣고자 하는 것이 무엇인지 다시 한 번 생각해보자. 2가지, 로고와 메뉴의 버튼리스트. 로고는 왼쪽이기 때문에 float: left;를 적용한다. */
+  /*여기서 적용하는 float는 다음 등장할 네비바 메뉴를 오른쪽에 위치시키기 위해서도 반드시 필요하다.  */
+  float: left;
+  /*불필요한 마진은 없애준다*/
+  margin: 0;
+  /*왼쪽 margin을 띄워준다.*/
+  margin-left: 30px;
+}
+
+.nav-menu {
+  /*위에서 설명한 것과 같이 3개의 버튼을 포함한 네비바 메뉴를 오른쪽으로 보내기 위해서는 float: right;를 적용한다.*/
+  /*적용 후, 우리는 左로고, 右메뉴버튼을 이뤄냈음을 확인할 수 있다.*/
+  float: right;
+  /*보기 좋게 오른쪽에서 적절희 띄워준다.*/
+  margin-right: 30px;
+}
+
+.nav-btn {
+  /*'li' 요소 옆에 따라다니는 흉측한 점을 지우는 선언이다. 반드시 적용하자~*/
+  list-style-type: none;
+  /*불필요한 마진은 없애준다*/
+  margin: 0;
+}
+
+ul.nav-btn > li {
+  /*애증의 'float'! 버튼을 가로배치 하기 위해서 float: left;를 적용한다. 'ul.nav-btn > li'라고 한 이유는 'nav-btn'이라는 클래스를 가지는 'ul'태그의 'li'태그 3개 각각에 모두 float를 주어야 하기 때문이다~*/
+  float: left;
+  /*버튼 끼리의 간격을 두기 위해 margin 값을 설정한다*/
+  margin-left: 25px;
+  font-weight: bold;
+}
+
+/*'header' part*/
+.hd {
+  /*width값은 굳이 필요가 없다. 어차피 설정을 안해도 부모의 width값만큼 늘어날 거니까~ */
+  height: 600px;
+  /*배경이미지를 삽입한다.*/
+  background-image: url("./header-img.jpg");
+  /*배경 이미지가 지정된 영역을 꽉차게 만들어 주는 선언~!*/
+  background-size: cover;
+  /*사진의 정중앙 부분으로 포지션을 위치시키는 선언이다. 'background-position: (X축) (Y축);'의 형식으로 이용한다.*/
+  background-position: center center;
+  /*'header'의 자식요소의 글씨체를 모두 흰색으로~ 상속이 되기 때문에 여기에 선언해도 모두 적용된다~*/
+  color: white;
+  /*요소를 가운데에 배치하는 선언~! 이 역시 상속되는 선언이다.*/
+  text-align: center;
+}
+
+.hd-title {
+  /*글씨의 사이즈를 적절하게 조절한다.*/
+  font-size: 100px;
+  /*불필요한 마진을 없앤다.*/
+  margin-top: 0px;
+  /*아래의 글과 간격을 두기 위해 'margin-bottom'값을 설정한다.*/
+  margin-bottom: 20px;
+  /*'header'의 텍스트를 가운데에 위치시키기 위해서 적절한 값의 'padding'을 적용시킨다.*/
+  padding-top: 150px;
+}
+
+/*'section' part*/
+.sec {
+  /*'section'의 'article'들을 가운데에 배열시켜주는 선언이다*/
+  text-align: center;
+  /*'section'에게 위아래 간격을 주기 위한 선언이다~ 좌우는 'padding'을 없애 버린다.*/
+  padding: 100px 0;
+  /*'section'영역의 변화를 눈으로 확인하기 위해서 배경색을 적용하자*/
+  background-color: #FFE4B5;
+}
+
+.sec::after {
+  /*앞에도 나욌던 '댐' 세우기! 'section'의 자식요소들은 모두 'float'된 상태이다. 즉...'section' 부분은 도망간 자식요소들 덕분에 height 값을 잃게 되었다. 반드시 다음의 코드를 적용하자~!!*/
+  content:" ";
+  display: block;
+  clear: both;
+}
+
+
+.sec article {
+  /*'section'에 속하는 각각의 'article'요소들을 먼저 'float'시킨다! 가로배치를 위하여~ */
+  float: left;
+  /*각각의 'article' 박스의 폭을 적절한 크기로 조절한다.*/
+  width: 300px;
+  /*'container'클래스는 960px의 width값을 가진다! 300px의 'article'이 3개 있으면 모두 900px의 폭... 이제 'article'간에 생긴 2개의 간격에 30px의 'margin'만 각각 적용하면 완벽히 가운데 정렬에 성공할 수 있다! */
+  margin-right: 30px;
+}
+
+.sec article:last-child {
+  /*가운데 정렬에 성공하나 했더니 마지막 'article'이 밑으로 밀려났다...이게 웬일??? 바로 마지막 요소의 오른쪽에 'margin'이 생겼기 때문이다. 우리는 'Pseudo-class'를 이용해 마지막 자식요소에게는 'margin'을 없애 주어야 한다. 그렇게 되면 300px(atc_1)+30px(gap_1)+300px(atc_2)+30px(gap_2)+300px(atc_3)+0px=960px이 되어 가운데 정렬이 가능해진다.*/
+  margin-right: 0;
+}
+
+.square {
+  /*형태가 다른 사진들을 정사각형 모양으로 원래의 형태를 보존하면서 출력시키기 위해 'square'라는 클래스를 가지는 'div'를 설정한다. 이 'square'클래스는 정사각형이 아닌 그림들을 정사각형으로 보이게 하는 일종의 '틀'이다.'*/
+  /*넘치는 부분은 가리자.*/
+  overflow: hidden;
+  /*사진을 넣을 '틀'의 사이즈를 설정한다*/
+  height: 300px;
+  width: 300px;
+}
+
+.sec article img {
+  /*'article'에 속하는 'img'요소 들의 폭을 100%로 설정한다. 여기서 100%라는 것은 width값이 300px인 'square' 박스에 꽉 채운다는 의미이다.*/
+  width: 100%;
+  /*height에 'auto'값을 주면 width의 변화에 따라 비율이 고정된 상태에서 높이가 변한다.*/
+  height: auto;
+}
+
+.sec article p {
+  margin-top: 40px;
+}
+
+/*'footer part'*/
+.ft {
+  /*'footer'는 간단하다. 'padding'으로 적절한 크기의 영역 설정후 배경색을 설정해주자! 텍스트의 가운데 배치는 'text-align: center;'로 해결하자  */
+  padding: 15px;
+  text-align: center;
+  background-color: crimson;
+  font-weight: bold;
+}

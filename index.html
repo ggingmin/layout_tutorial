@@ -1,0 +1,83 @@
+<!-- 우리는 이제 느낌표를 이용해서 한번에 html작성을 위한 세팅을 마칠 수 있다. -->
+<!DOCTYPE html>
+<!-- 페이지에 사용한 언어를 알맞게 설정해준다 -->
+<html lang="en">
+
+<head>
+    <!-- 글씨가 정상적으로 출력되게 하려면 <meta charset="UTF-8"> 반드시 적용! -->
+    <meta charset="UTF-8">
+    <!-- 웹페이지의 이름을 적어준다. 검색엔진에 노출되는 제목이 바로 이 'title' 부분! -->
+    <title>Tutorial</title>
+    <!-- CSS를 작동시키려면 CSS 파일을 알맞게 로드할 수 있도록 'link'태그를 반드시 걸어야 한다. -->
+    <link rel="stylesheet" href="./tutorial.css" type="text/css">
+</head>
+
+<body>
+    <!-- 우리가 페이지를 구성하는 컨텐츠를 가운데로 보기 좋게 모으기 위한 클래스, 흔히 container라고 하며, 강의에 따르면 많은 디자이너가 960px의 width를 디폴트로 잡는다고 한다. -->
+    <!-- +, *, > 등 기호만 있으면 빠른 코딩은 시간문제! -->
+    <nav>
+        <!-- 콘텐츠가 가운데 일정한 영역에 모이도록 'container'클래스의 'div'로 묶어준다 -->
+        <div class="container">
+            <!-- nav의 로고는 페이지의 가장 중요한 부분! h1태그를 적용해주자 -->
+            <!-- 로고를 누르면 초기화면으로 돌아오게 하기 위해 'a'태그로 마크업! -->
+            <h1 class="nav-logo"><a href="./index.html">Tutorial</a></h1>
+            <!-- 네비게이션바에 3개의 버튼을 만들어 주기 위해 ul태그를 이용한다. -->
+            <div class="nav-menu">
+                <ul class="nav-btn">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Subscribe</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hd">
+        <!-- 콘텐츠가 가운데 일정한 영역에 모이도록 'container'클래스의 'div'로 묶어준다 -->
+        <div class="container">
+            <h2 class="hd-title">Tutorial Page</h2>
+            <p class="hd-txt">Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life!
+                Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life!
+                Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life! Hack Your Life!</p>
+        </div>
+    </header>
+
+    <section class="sec">
+        <!-- 'section'영역의 콘텐츠도 가운데로 모으기 위해 'container'클래스를 가지는 'div'로 묶는다 -->
+        <div class="container">
+            <!-- 각 'article'에 'img'태그를 이용해 사진을 로드한다. 이때 꼭 'alt'속성값을 입력한다. -->
+            <article class="atc_1">
+                <div class="square">
+                    <img src="./atc_1.png" alt="lion_1">
+                </div>
+                <p>lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1
+                    lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1
+                    lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1 lion_1</p>
+            </article>
+            <article class="atc_2">
+                <div class="square">
+                    <img src="./atc_2.jpg" alt="lion_2">
+                </div>
+                <p>lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2
+                    lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2
+                    lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2 lion_2</p>
+            </article>
+            <article class="atc_3">
+                <div class="square">
+                    <img src="./atc_3.jpg" alt="lion_3">
+                </div>
+                <p>lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3
+                    lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3
+                    lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3 lion_3</p>
+            </article>
+        </div>
+    </section>
+
+    <footer class="ft">
+        <div class="container">
+            <p>Copyright © 2017 Likelion. All rights reserved</p>
+        </div>
+    </footer>
+</body>
+
+</html>
